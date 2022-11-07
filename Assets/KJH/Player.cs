@@ -110,7 +110,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow) && isJump && isGround)
         {
-            Debug.Log("È÷È÷È÷");
             rb.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
             anim.SetTrigger("doJump");
         }
@@ -158,5 +157,5 @@ public class Player : MonoBehaviour
             Debug.Log("Á×¾î¥’..");
         }
     }
-
+   
 }
