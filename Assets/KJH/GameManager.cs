@@ -30,4 +30,14 @@ public class GameManager : MonoBehaviour
     {
         gameScore = 0;
     }
+
+    public void CheckBestScore()
+    {
+
+    }
+
+    public void InitStartGame()
+    {
+        gameScore = 0;
+    }
 }
