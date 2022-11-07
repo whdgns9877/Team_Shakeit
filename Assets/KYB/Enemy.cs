@@ -24,10 +24,13 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        
+        target = GameObject.FindObjectOfType<Player>().transform;   
     }
     private void Update()
     {
+        if (transform.position.y <= -30.0f) Destroy(gameObject);
+
+
         attackCooltimeLeft -= Time.deltaTime;
         waitTimeLeft -= Time.deltaTime;
 
@@ -64,7 +67,7 @@ public class Enemy : MonoBehaviour
             { 
                 anim.SetTrigger("doAttack");
                 attackCooltimeLeft = attackCooltime;
-                waitTimeLeft = 2.0f;
+                waitTimeLeft = 1.5f;
             }
         }
 
