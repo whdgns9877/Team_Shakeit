@@ -5,30 +5,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public enum PlayerState { Idle, Move, Jump, Dash}
+
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-
-        }
+        float h = Input.GetAxisRaw("Horizontal");
+        rb.AddForce(Vector2.right * h, ForceMode2D.Impulse);
     }
 }
