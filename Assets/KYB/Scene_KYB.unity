@@ -588,6 +588,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3061166208106680253, guid: 937790eb7694b1441ad615320d284c94, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954912192215431096, guid: 937790eb7694b1441ad615320d284c94, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4822028560950322598, guid: 937790eb7694b1441ad615320d284c94, type: 3}
       propertyPath: m_Name
       value: Player
@@ -642,7 +650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4822028560950322602, guid: 937790eb7694b1441ad615320d284c94, type: 3}
       propertyPath: m_Mass
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4822028560950322605, guid: 937790eb7694b1441ad615320d284c94, type: 3}
       propertyPath: hp

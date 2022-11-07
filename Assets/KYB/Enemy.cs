@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
 
     bool isMove;
 
+    bool isHit;
 
     private void Start()
     {
@@ -29,6 +30,8 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         if (transform.position.y <= -30.0f) Destroy(gameObject);
+
+        if (isHit) return;
 
 
         attackCooltimeLeft -= Time.deltaTime;
@@ -76,5 +79,21 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("ENEMY HIT!");
         anim.SetTrigger("doHit");
+        CO_DoHit();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("PlayerAttack"))
+        {
+            hit();
+        }
+    }
+
+    IEnumerator CO_DoHit()
+    {
+        isHit = true;
+        yield return new WaitForSeconds(1.0f);
+        isHit = false;
     }
 }
