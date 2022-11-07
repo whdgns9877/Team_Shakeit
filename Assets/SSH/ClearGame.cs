@@ -1,38 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class ClearGame : MonoBehaviour
 {
     int totalScore = 0;
+    GameObject scoreText;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        scoreText = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void EndScore(int Score)
-    {
-        
-    }
 
     public IEnumerator ToTalScore (int Score)
     {
         totalScore += Score;
 
+        scoreText.GetComponent<ScoreText>().ScoreTextInfo(totalScore);
+
+
+        Debug.Log(totalScore);
+
         if (totalScore >= 2000)
         {
+            Debug.Log("³¡³¡");
             GameManager.Inst?.EndCurLevel();
+            GameManager.Inst?.ClearGame();
         }
-        yield return new WaitForSeconds(5f);
-
-        GameManager.Inst?.ClearGame();
+        yield return null;
     }
 }
