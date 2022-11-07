@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class MoveMap : MonoBehaviour
 {
-    public float mapSpeed = 10f;
-    public GameObject[] block;
+    public float mapSpeed = 5f;
 
     [SerializeField]
-    GameObject map;
+    GameObject Map;
+
+    private GameObject map;
+
+    float X = 15f, Y = -4.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,39 +20,18 @@ public class MoveMap : MonoBehaviour
         StartCoroutine(InstMap());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        TransMap();
-    }
-
     public void TransMap()
     {
-        transform.Translate(Vector3.left * mapSpeed * Time.deltaTime);
-    }
-
-    public void OnEnable()
-    {
-        for (int i = 0; i < block.Length; i++)
-        {
-            if (Random.RandomRange(0, 3) == 0)
-            {
-                block[0].SetActive(true);
-            }
-            else
-            {
-                block[0].SetActive(false);
-            }
-        }
+        map.transform.Translate(Vector3.left * mapSpeed * Time.deltaTime);
     }
 
     public IEnumerator InstMap()
     {
         while (true)
         {
-            Instantiate(map);
-        }
-
-        yield return null;
+            map = Instantiate(Map);
+            map.transform.position = new Vector3(X,Y,0);
+            yield return new WaitForSeconds(1.5f);
+        }        
     }
 }
