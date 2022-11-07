@@ -11,18 +11,6 @@ public class ScoreText : MonoBehaviour
         TMP = GetComponent<TextMeshProUGUI>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ScoreTextInfo(int num)
     {
        TMP.text = num.ToString();

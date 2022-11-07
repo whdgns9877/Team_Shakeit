@@ -12,18 +12,6 @@ public class ClearGame : MonoBehaviour
         scoreText = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public IEnumerator ToTalScore (int Score)
     {
@@ -31,16 +19,15 @@ public class ClearGame : MonoBehaviour
 
         scoreText.GetComponent<ScoreText>().ScoreTextInfo(totalScore);
 
-        //ScoreText.sco = totalScore.ToString();
 
         Debug.Log(totalScore);
 
         if (totalScore >= 2000)
         {
+            Debug.Log("³¡³¡");
             GameManager.Inst?.EndCurLevel();
+            GameManager.Inst?.ClearGame();
         }
-        yield return new WaitForSeconds(5f);
-
-        GameManager.Inst?.ClearGame();
+        yield return null;
     }
 }
