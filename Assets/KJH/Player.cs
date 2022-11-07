@@ -17,9 +17,17 @@ public class Player : MonoBehaviour
 
     bool flip = false;
 
+    public int maxHp = 10;
+    public int hp;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        hp = maxHp;
     }
 
     private void Update()
@@ -67,5 +75,10 @@ public class Player : MonoBehaviour
     private void CheckJump()
     {
         isGround = Physics2D.OverlapCircle(transform.position - Vector3.right * 0.2f, 0.03f, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.OverlapCircle(transform.position + Vector3.right * 0.2f, 0.05f, 1 << LayerMask.NameToLayer("Ground"));
+    }
+
+    public void Damage(int damage)
+    {
+        hp -= damage;
     }
 }
