@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  maxHp: 0
+  maxHp: 100
   hp: 0
   isDead: 0
 --- !u!50 &4822028560950322602

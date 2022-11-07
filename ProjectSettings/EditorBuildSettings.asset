@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/KYB/Scene_KYB.unity
     guid: 65a6f0590cac4404eb4e938d2e96cded
+  - enabled: 1
+    path: Assets/CWJ/JumpMap.unity
+    guid: 1df9fbe10d623324cb4a6aa757553479
+  - enabled: 1
+    path: Assets/PublicFolder/SSH_Block.unity
+    guid: 7f39c8d6294be244bb0846222bbdfbd5
   m_configObjects: {}
