@@ -80,6 +80,7 @@ public class Enemy : MonoBehaviour
         Debug.Log("ENEMY HIT!");
         anim.SetTrigger("doHit");
         CO_DoHit();
+        rb.AddForce(moveVec.normalized * 1.5f, ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
