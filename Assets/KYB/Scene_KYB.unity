@@ -642,7 +642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4822028560950322602, guid: 937790eb7694b1441ad615320d284c94, type: 3}
       propertyPath: m_Mass
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4822028560950322605, guid: 937790eb7694b1441ad615320d284c94, type: 3}
       propertyPath: hp
