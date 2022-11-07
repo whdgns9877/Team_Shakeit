@@ -12,12 +12,18 @@ public class Enemy : MonoBehaviour
 
     Vector3 moveVec;
     public float moveSpeed;
+    public float attackRange;
+    public float attackCooltime;
+     float attackCooltimeLeft;
+
 
     bool isMove;
 
 
     private void Update()
     {
+        attackCooltimeLeft -= Time.deltaTime;
+
         if (target == null)
         {
             anim.SetBool("isMoving", false);
@@ -25,20 +31,37 @@ public class Enemy : MonoBehaviour
         }
 
         moveVec = target.transform.position - transform.position;
-        anim.SetBool("isMoving", true);
 
-        transform.position += new Vector3(moveVec.x, 0, 0).normalized * Time.deltaTime * moveSpeed;
-       // transform.position += (moveVec.x > 0 ? 1 : -1) * Time.deltaTime * moveSpeed;
-
-        if(moveVec.x >= 0)
+        if (attackRange < Mathf.Abs(moveVec.x))
         {
-            transform.localScale = new Vector2(1, 1);
+            anim.SetBool("isMoving", true);
+            transform.position += new Vector3(moveVec.x, 0, 0).normalized * Time.deltaTime * moveSpeed;
+            if (moveVec.x >= 0)
+            {
+                transform.localScale = new Vector2(1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector2(-1, 1);
+
+            }
         }
         else
         {
-            transform.localScale = new Vector2(-1, 1);
-            
+            anim.SetBool("isMoving", false);
+
+            if(attackCooltimeLeft <= 0)
+            { 
+                anim.SetTrigger("doAttack");
+                attackCooltimeLeft = attackCooltime;
+            }
         }
 
+    }
+
+    public void hit()
+    {
+        Debug.Log("ENEMY HIT!");
+        anim.SetTrigger("doHit");
     }
 }
