@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
+        moveVec = target.transform.position - transform.position;
         if (transform.position.y <= -30.0f) Destroy(gameObject);
 
         if (isHit) return;
@@ -43,7 +44,6 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        moveVec = target.transform.position - transform.position;
 
         if (moveVec.x >= 0)
         {
@@ -77,10 +77,9 @@ public class Enemy : MonoBehaviour
 
     public void hit()
     {
-        Debug.Log("ENEMY HIT!");
         anim.SetTrigger("doHit");
         CO_DoHit();
-        rb.AddForce(moveVec.normalized * 1.5f, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.right *  moveVec.normalized.x * -5f + Vector2.up * moveVec.normalized * 7f, ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
