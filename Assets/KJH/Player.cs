@@ -161,6 +161,12 @@ public class Player : MonoBehaviour
             Damage(10);
         }
 
+        else if (col.gameObject.tag == "RealDeadZone")
+        {
+            Debug.Log("�׾");
+            isDead = true;
+        }
+
     }
 
     private void CheckJump()

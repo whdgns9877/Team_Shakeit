@@ -57,6 +57,7 @@ public class BlockHP : MonoBehaviour
 
             else if (curHP == 0)
             {
+                GameManager.Inst?.AddScore(300);
                 Destroy(gameObject);
             }
         }
@@ -70,6 +71,7 @@ public class BlockHP : MonoBehaviour
 
             else if (curHP == 0)
             {
+                GameManager.Inst?.AddScore(200);
                 Destroy(gameObject);
             }
         }
@@ -78,16 +80,18 @@ public class BlockHP : MonoBehaviour
         {
             if (curHP == 0)
             {
+                GameManager.Inst?.AddScore(100);
                 Destroy(gameObject);
             }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("어택");
+
         if (other.CompareTag("PlayerAttack"))
         {
-            Debug.Log("어택");
             curHP -= 1;
             Debug.Log(curHP);
         }
