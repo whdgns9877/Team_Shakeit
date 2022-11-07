@@ -4,12 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
-  - DeadZone
-  - Slow
-  - Up
-  - SuperUp
-  - Potal
+  - BlockMap
+  - Destroy
+  - Block
   layers:
   - Default
   - TransparentFX
