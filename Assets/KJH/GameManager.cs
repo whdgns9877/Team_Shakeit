@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameScore = 0;
+        GoNextScene("Scene_KYB");
     }
 
     public void AddScore(int score)
