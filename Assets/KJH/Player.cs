@@ -139,20 +139,26 @@ public class Player : MonoBehaviour
         if (col.gameObject.tag == "Up")
         {
             rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * 10f, ForceMode2D.Impulse);
         }
 
         else if (col.gameObject.tag == "SuperUp")
         {
             rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 12f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * 15f, ForceMode2D.Impulse);
         }
 
         else if (col.gameObject.tag == "Slow")
         {
             rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 4f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
         }
+
+        else if (col.gameObject.tag == "DeadZone")
+        {
+            Damage(10);
+        }
+
     }
 
     private void CheckJump()
