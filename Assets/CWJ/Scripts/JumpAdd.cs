@@ -11,13 +11,13 @@ public class JumpAdd : MonoBehaviour
     // มกวม ศ๛
     public int jumpForce;
 
-    
-
 
 
     void Start()
     {
         
+
+
     }
 
    
