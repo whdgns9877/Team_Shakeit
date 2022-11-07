@@ -10,6 +10,7 @@ public class AttackCollider_Enemy : MonoBehaviour
         {
             //피격함수 불러오기
             Debug.Log("HIT");
+            collision.GetComponent<Player>().Damage(1);
         }
     }
 }
