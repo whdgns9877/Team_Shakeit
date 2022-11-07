@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BlockMap
   - Destroy
+  - Block
   layers:
   - Default
   - TransparentFX
