@@ -138,12 +138,14 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.tag == "Up")
         {
+            GameManager.Inst.AddScore(10);
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
         }
 
         else if (col.gameObject.tag == "SuperUp")
         {
+            GameManager.Inst.AddScore(100);
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * 12f, ForceMode2D.Impulse);
         }
