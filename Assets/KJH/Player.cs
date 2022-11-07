@@ -53,7 +53,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow) && isJump && isGround)
         {
-            rb.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
+            Debug.Log("È÷È÷È÷");
+            rb.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
         }
 
 
