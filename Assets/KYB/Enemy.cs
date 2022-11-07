@@ -70,7 +70,6 @@ public class Enemy : MonoBehaviour
                 waitTimeLeft = 1.5f;
             }
         }
-
     }
 
     public void hit()

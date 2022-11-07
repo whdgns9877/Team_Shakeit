@@ -158,6 +158,5 @@ public class Player : MonoBehaviour
             Debug.Log("�׾..");
         }
     }
-    
 
 }
