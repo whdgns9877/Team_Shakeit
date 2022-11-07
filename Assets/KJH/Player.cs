@@ -190,12 +190,11 @@ public class Player : MonoBehaviour
     {
         hp -= damage;
 
-        if(hp <= 0)
+        if (hp <= 0)
         {
             Debug.Log("�׾..");
             isDead = true;
         }
     }
-
 
 }

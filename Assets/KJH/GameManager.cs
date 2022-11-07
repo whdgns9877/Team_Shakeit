@@ -67,4 +67,9 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("BestScore", curBestScore);
         }
     }
+
+    public void OnClickGameStart()
+    {
+        GoNextScene("Scene_KYB");
+    }
 }
