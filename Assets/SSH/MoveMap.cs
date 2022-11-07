@@ -8,10 +8,13 @@ public class MoveMap : MonoBehaviour
     public float mapSpeed = 10f;
     public GameObject[] block;
 
+    [SerializeField]
+    GameObject map;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(InstMap());
     }
 
     // Update is called once per frame
@@ -38,5 +41,15 @@ public class MoveMap : MonoBehaviour
                 block[0].SetActive(false);
             }
         }
+    }
+
+    public IEnumerator InstMap()
+    {
+        while (true)
+        {
+            Instantiate(map);
+        }
+
+        yield return null;
     }
 }
