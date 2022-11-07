@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null)
+            return;
         instance = this;
         DontDestroyOnLoad(this);
     }
@@ -68,6 +70,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("BestScore", curBestScore);
         }
+        SceneManager.LoadScene("EndScene");
     }
 
     public void OnClickGameStart()

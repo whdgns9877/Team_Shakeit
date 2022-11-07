@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Build;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public enum PlayerState { Idle, Move, Jump, Dash}
@@ -45,7 +45,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (isDead == true)
+        {
+            SceneManager.LoadScene("LoseScene");
             return;
+        }
 
         CheckJump();
 
