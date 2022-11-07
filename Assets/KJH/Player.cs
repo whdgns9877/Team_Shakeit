@@ -1,8 +1,4 @@
-using Newtonsoft.Json.Bson;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
