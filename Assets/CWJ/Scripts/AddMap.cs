@@ -12,6 +12,8 @@ public class AddMap : MonoBehaviour
     public GameObject platformDown;
     // None 발판
     public GameObject platformNone;
+    // End 발판
+    public GameObject EndForm;
 
     // 생성할 오브젝트 y좌표 설정
     private int cnt = 0;
@@ -29,92 +31,104 @@ public class AddMap : MonoBehaviour
     {
         for (int i = 0; i < 100; i++)
         {
-            if (Random.Range(0, 7) == 0 || Random.Range(0, 7) == 1 || Random.Range(0, 7) == 2 || Random.Range(0, 7) == 3)
+            if(i == 99)
             {
-                GameObject plat = Instantiate(platform);
-
-                // Random 객체를 이용해서 랜덤으로 x좌표를 증가하거나 감소한다.
-                if (Random.Range(0, 2) == 0)
-                {
-                    if (x >= 8) x--;
-
-                    x++;
-                }
-                else
-                {
-                    if (x <= -8) x++;
-
-                    x--;
-                }
-                plat.transform.position = new Vector3(x, (++cnt), 0);
-                // 생성된 오브젝트를 구별하기 위해 cnt의 값을 넣어줌.
-                plat.name = cnt.ToString();
+                GameObject end = Instantiate(EndForm);
+                end.transform.position = new Vector2(x , cnt + 3);
             }
-            else if(Random.Range(0,7) == 4)
+
+           else if(i <= 98)
             {
-                GameObject upUp = Instantiate(platformUp);
-
-                // Random 객체를 이용해서 랜덤으로 x좌표를 증가하거나 감소한다.
-                if (Random.Range(0, 2) == 0)
+                if (Random.Range(0, 7) == 0 || Random.Range(0, 7) == 1 || Random.Range(0, 7) == 2 || Random.Range(0, 7) == 3)
                 {
-                    if (x >= 8) x--;
-  
-                    x++;
-                }
-                else
-                {
-                    if (x <= -8) x++;
+                    GameObject plat = Instantiate(platform);
 
-                    x--;
+                    // Random 객체를 이용해서 랜덤으로 x좌표를 증가하거나 감소한다.
+                    if (Random.Range(0, 2) == 0)
+                    {
+                        if (x >= 8) x--;
+
+                        x++;
+                    }
+                    else
+                    {
+                        if (x <= -8) x++;
+
+                        x--;
+                    }
+
+                    plat.transform.position = new Vector3(x, (++cnt), 0);
+                    // 생성된 오브젝트를 구별하기 위해 cnt의 값을 넣어줌.
+                    plat.name = cnt.ToString();
                 }
+                else if (Random.Range(0, 7) == 4)
+                {
+                    GameObject upUp = Instantiate(platformUp);
+
+                    // Random 객체를 이용해서 랜덤으로 x좌표를 증가하거나 감소한다.
+                    if (Random.Range(0, 2) == 0)
+                    {
+                        if (x >= 8) x--;
+
+                        x++;
+                    }
+                    else
+                    {
+                        if (x <= -8) x++;
+
+                        x--;
+                    }
                     upUp.transform.position = new Vector3(x, (++cnt), 0);
-                // 생성된 오브젝트를 구별하기 위해 cnt의 값을 넣어줌.
-                upUp.name = cnt.ToString();
+                    // 생성된 오브젝트를 구별하기 위해 cnt의 값을 넣어줌.
+                    upUp.name = cnt.ToString();
+                }
+
+                else if (Random.Range(0, 7) == 5)
+                {
+                    GameObject downDown = Instantiate(platformDown);
+
+                    // Random 객체를 이용해서 랜덤으로 x좌표를 증가하거나 감소한다.
+                    if (Random.Range(0, 2) == 0)
+                    {
+                        if (x >= 8) x--;
+
+                        x++;
+                    }
+                    else
+                    {
+                        if (x <= -8) x++;
+
+                        x--;
+                    }
+                    downDown.transform.position = new Vector3(x, (++cnt), 0);
+                    // 생성된 오브젝트를 구별하기 위해 cnt의 값을 넣어줌.
+                    downDown.name = cnt.ToString();
+                }
+
+                else if (Random.Range(0, 7) == 6)
+                {
+                    GameObject none = Instantiate(platformNone);
+
+                    // Random 객체를 이용해서 랜덤으로 x좌표를 증가하거나 감소한다.
+                    if (Random.Range(0, 2) == 0)
+                    {
+                        if (x >= 8) x--;
+
+                        x++;
+                    }
+                    else
+                    {
+                        if (x <= -8) x++;
+
+                        x--;
+                    }
+                    none.transform.position = new Vector3(x, (++cnt), 0);
+                    // 생성된 오브젝트를 구별하기 위해 cnt의 값을 넣어줌.
+                    none.name = cnt.ToString();
+                }
             }
 
-            else if (Random.Range (0,7) == 5)
-            {
-                GameObject downDown = Instantiate(platformDown);
-
-                // Random 객체를 이용해서 랜덤으로 x좌표를 증가하거나 감소한다.
-                if (Random.Range(0, 2) == 0)
-                {
-                    if (x >= 8) x--;
-
-                    x++;
-                }
-                else
-                {
-                    if (x <= -8) x++;
-
-                    x--;
-                }
-                downDown.transform.position = new Vector3(x, (++cnt), 0);
-                // 생성된 오브젝트를 구별하기 위해 cnt의 값을 넣어줌.
-                downDown.name = cnt.ToString();
-            }
-
-            else if (Random.Range(0, 7) == 6)
-            {
-                GameObject none = Instantiate(platformNone);
-
-                // Random 객체를 이용해서 랜덤으로 x좌표를 증가하거나 감소한다.
-                if (Random.Range(0, 2) == 0)
-                {
-                    if (x >= 8) x--;
-
-                    x++;
-                }
-                else
-                {
-                    if (x <= -8) x++;
-
-                    x--;
-                }
-                none.transform.position = new Vector3(x, (++cnt), 0);
-                // 생성된 오브젝트를 구별하기 위해 cnt의 값을 넣어줌.
-                none.name = cnt.ToString();
-            }
+           
         }
     }
 }

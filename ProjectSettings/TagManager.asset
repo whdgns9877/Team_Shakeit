@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ground
   - DeadZone
+  - Slow
+  - Up
+  - SuperUp
+  - Potal
   layers:
   - Default
   - TransparentFX

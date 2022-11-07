@@ -63,6 +63,27 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Up")
+        {
+            rb.velocity = Vector2.zero;
+            rb.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
+        }
+
+        else if (col.gameObject.tag == "SuperUp")
+        {
+            rb.velocity = Vector2.zero;
+            rb.AddForce(Vector2.up * 12f, ForceMode2D.Impulse);
+        }
+
+        else if (col.gameObject.tag == "Slow")
+        {
+            rb.velocity = Vector2.zero;
+            rb.AddForce(Vector2.up * 4f, ForceMode2D.Impulse);
+        }
+    }
+
     private void CheckJump()
     {
         isGround = Physics2D.OverlapCircle(transform.position - Vector3.right * 0.2f, 0.03f, 1 << LayerMask.NameToLayer("Ground")) || Physics2D.OverlapCircle(transform.position + Vector3.right * 0.2f, 0.05f, 1 << LayerMask.NameToLayer("Ground"));

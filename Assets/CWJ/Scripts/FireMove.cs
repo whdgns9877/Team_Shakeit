@@ -20,8 +20,7 @@ public class FireMove : MonoBehaviour
     {
         timer += Time.deltaTime;
       
-
-        if (timer >= 1.3f)
+        if (timer >= 2.5f)
         {
             yy++;
 
