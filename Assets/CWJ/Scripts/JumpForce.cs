@@ -2,15 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpPower : MonoBehaviour
+public class JumpForce : MonoBehaviour
 {
-    // 발판
-    public GameObject platform;
-    // 생성할 오브젝트 y좌표 설정
-    private int cnt = 0;
-    // 생성할 x 좌표 설정
-    private int x = 0;
-
+    // 점프 코드
     [SerializeField] float jumpForce = 400f, speed = 5f, jumpZoneFoce = 2f;
     int jumpCount = 1;
     float moveX;
@@ -33,7 +27,6 @@ public class JumpPower : MonoBehaviour
         {
             isjumpZone = true;
         }
-
     }
 
     // Start is called before the first frame update
@@ -42,7 +35,6 @@ public class JumpPower : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //점프 카운트 초기화
         jumpCount = 0;
-        CreateMap();
     }
 
     // Update is called once per frame
@@ -51,7 +43,6 @@ public class JumpPower : MonoBehaviour
         MoveMent();
     }
 
-    // 점프대를 위한 코드
     void MoveMent()
     {
         if (isGround)
@@ -76,18 +67,4 @@ public class JumpPower : MonoBehaviour
         rb.velocity = new Vector2(moveX, rb.velocity.y);
     }
 
-    //맵 생성을 위한 코드
-    public void CreateMap()
-    {
-        for (int i = 0; i < 20; i++)
-        {
-            GameObject gobj = Instantiate(platform);
-            // Random 객체를 이용해서 랜덤으로 x좌표를 증가하거나 감소한다.
-            if (Random.Range(0, 2) == 0) x++;
-            else x--;
-            gobj.transform.position = new Vector3(x, (++cnt), 0);
-            // 생성된 오브젝트를 구별하기 위해 cnt의 값을 넣어줌.
-            gobj.name = cnt.ToString();
-        }
-    }
 }
