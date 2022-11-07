@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     public int maxHp = 10;
     public int hp;
 
+    public bool isDead = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,6 +41,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (isDead == true)
+            return;
+
         CheckJump();
 
         if (isAttack == true)
@@ -90,23 +95,31 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDead == true)
+            return;
+
         if (canMove)
         {
             if (Input.GetKey(KeyCode.LeftArrow))
             {
+                anim.SetBool("isMoving", true);
                 isWalk = true;
                 transform.position += Vector3.left * Time.fixedDeltaTime * speed;
                 flip = false;
             }
-            if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(KeyCode.RightArrow))
             {
+                anim.SetBool("isMoving", true);
                 isWalk = true;
                 transform.position += Vector3.right * Time.fixedDeltaTime * speed;
                 flip = true;
             }
+            else anim.SetBool("isMoving", false);
         }
-        else isWalk = false;
-
+        else
+        {
+            isWalk = false;
+        }
 
         if (Input.GetKey(KeyCode.UpArrow) && isJump && isGround)
         {
@@ -155,7 +168,7 @@ public class Player : MonoBehaviour
         if(hp <= 0)
         {
             Debug.Log("�׾..");
+            isDead = true;
         }
     }
-   
 }
