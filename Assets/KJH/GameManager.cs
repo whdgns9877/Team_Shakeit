@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void ClearGame()
     {
+        Debug.Log("³¡");
         int curBestScore = TotalScore;
         bestScore = PlayerPrefs.GetInt("BestScore");
 
