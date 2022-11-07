@@ -30,8 +30,11 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         moveVec = target.transform.position - transform.position;
-        if (transform.position.y <= -30.0f) Destroy(gameObject);
-
+        if (transform.position.y <= -30.0f)
+        {
+            GameManager.Inst?.AddScore(100);
+            Destroy(gameObject);
+        }
         if (isHit) return;
 
 
