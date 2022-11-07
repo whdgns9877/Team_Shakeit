@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 3954912192215431096}
   m_Layer: 0
   m_Name: HitCollider
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7200949306822936314
 Transform:
   m_ObjectHideFlags: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   speed: 3
   maxHp: 0
   hp: 0
+  isDead: 0
 --- !u!50 &4822028560950322602
 Rigidbody2D:
   serializedVersion: 4
