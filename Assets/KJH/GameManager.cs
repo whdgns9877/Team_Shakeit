@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public int gameScore;
 
+    public Player player;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameScore = 0;
+        player = GetComponent<Player>();
     }
 
     public void AddScore(int score)
