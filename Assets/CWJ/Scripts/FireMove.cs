@@ -5,9 +5,9 @@ using UnityEngine;
 public class FireMove : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float timer = 0;
+    private float timer = 0;
     private int yy = 0;
- 
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,14 +19,14 @@ public class FireMove : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-      
-        if (timer >= 2.5f)
-        {
-            yy++;
 
-            rb.velocity = new Vector2(0, yy);
-            timer = 0;
+            if (timer >= 2.5f)
+            {
+                yy++;
+
+                rb.velocity = new Vector2(0, yy);
+                timer = 0;
+            }
         }
-        
     }
-}
+
