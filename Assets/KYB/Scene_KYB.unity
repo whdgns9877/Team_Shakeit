@@ -590,11 +590,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3061166208106680253, guid: 937790eb7694b1441ad615320d284c94, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954912192215431096, guid: 937790eb7694b1441ad615320d284c94, type: 3}
+      propertyPath: m_Size.x
+      value: 2.82205
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954912192215431096, guid: 937790eb7694b1441ad615320d284c94, type: 3}
+      propertyPath: m_Size.y
+      value: 1.9041656
       objectReference: {fileID: 0}
     - target: {fileID: 3954912192215431096, guid: 937790eb7694b1441ad615320d284c94, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954912192215431096, guid: 937790eb7694b1441ad615320d284c94, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.40412468
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954912192215431096, guid: 937790eb7694b1441ad615320d284c94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.6164761
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954912192215431096, guid: 937790eb7694b1441ad615320d284c94, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4822028560950322598, guid: 937790eb7694b1441ad615320d284c94, type: 3}
       propertyPath: m_Name
