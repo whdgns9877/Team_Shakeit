@@ -21,13 +21,23 @@ public class Enemy : MonoBehaviour
 
     bool isMove;
 
+    bool isHit;
 
     private void Start()
     {
-        
+        target = GameObject.FindObjectOfType<Player>().transform;   
     }
     private void Update()
     {
+        moveVec = target.transform.position - transform.position;
+        if (transform.position.y <= -30.0f)
+        {
+            GameManager.Inst?.AddScore(100);
+            Destroy(gameObject);
+        }
+        if (isHit) return;
+
+
         attackCooltimeLeft -= Time.deltaTime;
         waitTimeLeft -= Time.deltaTime;
 
@@ -37,7 +47,6 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        moveVec = target.transform.position - transform.position;
 
         if (moveVec.x >= 0)
         {
@@ -64,15 +73,30 @@ public class Enemy : MonoBehaviour
             { 
                 anim.SetTrigger("doAttack");
                 attackCooltimeLeft = attackCooltime;
-                waitTimeLeft = 2.0f;
+                waitTimeLeft = 1.5f;
             }
         }
-
     }
 
     public void hit()
     {
-        Debug.Log("ENEMY HIT!");
         anim.SetTrigger("doHit");
+        CO_DoHit();
+        rb.AddForce(Vector2.right *  moveVec.normalized.x * -5f + Vector2.up * moveVec.normalized * 7f, ForceMode2D.Impulse);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("PlayerAttack"))
+        {
+            hit();
+        }
+    }
+
+    IEnumerator CO_DoHit()
+    {
+        isHit = true;
+        yield return new WaitForSeconds(1.0f);
+        isHit = false;
     }
 }

@@ -168,6 +168,11 @@ public class Player : MonoBehaviour
             isDead = true;
         }
 
+        else if (col.gameObject.tag == "RealDeadZone")
+        {
+            Debug.Log("�׾");
+            isDead = true;
+        }
     }
 
     private void JumpSound()
@@ -191,4 +196,6 @@ public class Player : MonoBehaviour
             isDead = true;
         }
     }
+
+
 }
