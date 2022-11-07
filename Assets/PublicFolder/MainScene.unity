@@ -329,6 +329,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3061166208106680253, guid: 937790eb7694b1441ad615320d284c94, type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
     - target: {fileID: 3954912192215431096, guid: 937790eb7694b1441ad615320d284c94, type: 3}
       propertyPath: m_Enabled
       value: 0
