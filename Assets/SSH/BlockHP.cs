@@ -85,9 +85,11 @@ public class BlockHP : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Destroy"))
+        if (other.CompareTag("PlayerAttack"))
         {
+            Debug.Log("╬Нец");
             curHP -= 1;
+            Debug.Log(curHP);
         }
     }
 }

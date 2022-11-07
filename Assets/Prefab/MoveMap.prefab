@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d8a48d5f525dc4d934601df3b55f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curHP: 0
   sprites:
   - {fileID: 21300000, guid: f1833425bb2c0624398d00e1f02612fb, type: 2}
   - {fileID: 21300000, guid: 827b17a8567497149a5ac9fb57b2eac2, type: 2}
@@ -437,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d8a48d5f525dc4d934601df3b55f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curHP: 0
   sprites:
   - {fileID: 21300000, guid: f1833425bb2c0624398d00e1f02612fb, type: 2}
   - {fileID: 21300000, guid: 827b17a8567497149a5ac9fb57b2eac2, type: 2}
@@ -563,6 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d8a48d5f525dc4d934601df3b55f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curHP: 0
   sprites:
   - {fileID: 21300000, guid: f1833425bb2c0624398d00e1f02612fb, type: 2}
   - {fileID: 21300000, guid: 827b17a8567497149a5ac9fb57b2eac2, type: 2}
