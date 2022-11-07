@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
 
+    AudioSource audioSource;
+
     [SerializeField] private float speed;
 
     bool isGround = false;
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         hp = maxHp;
     }
 
@@ -138,27 +141,31 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.tag == "Up")
         {
-            GameManager.Inst.AddScore(10);
+           // GameManager.Inst.AddScore(10);
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * 10f, ForceMode2D.Impulse);
+
+            JumpSound();
         }
 
         else if (col.gameObject.tag == "SuperUp")
         {
-            GameManager.Inst.AddScore(100);
+          //  GameManager.Inst.AddScore(100);
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * 15f, ForceMode2D.Impulse);
+            JumpSound();
         }
 
         else if (col.gameObject.tag == "Slow")
         {
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
+            JumpSound();
         }
 
         else if (col.gameObject.tag == "DeadZone")
         {
-            Damage(10);
+            isDead = true;
         }
 
         else if (col.gameObject.tag == "RealDeadZone")
@@ -166,6 +173,11 @@ public class Player : MonoBehaviour
             Debug.Log("�׾");
             isDead = true;
         }
+    }
+
+    private void JumpSound()
+    {
+        audioSource.Play();
     }
 
     private void CheckJump()
