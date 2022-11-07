@@ -1,26 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
     public static GameManager Inst { get { return instance; } }
 
+    public int TotalScore;
     public int gameScore;
+    public int bestScore;
 
-    public Player player;
+    public GameObject player;
+
+    public int curLevel = 0;
 
     private void Awake()
     {
         instance = this;
         DontDestroyOnLoad(this);
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         gameScore = 0;
-        player = GetComponent<Player>();
     }
 
     public void AddScore(int score)
@@ -28,18 +32,39 @@ public class GameManager : MonoBehaviour
         gameScore += score;
     }
 
-    public void ResetScore()
+    public void GoNextScene(string sceneName)
     {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void InitStartGame(int curLevel)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        switch (curLevel)
+        {
+            case 1:
+                break;
+
+            case 2:
+                break;
+        }
+    }
+
+    public void EndCurLevel()
+    {
+        TotalScore += gameScore;
         gameScore = 0;
     }
 
-    public void CheckBestScore()
+    public void ClearGame()
     {
+        int curBestScore = TotalScore;
+        bestScore = PlayerPrefs.GetInt("BestScore");
 
-    }
-
-    public void InitStartGame()
-    {
-        gameScore = 0;
+        if (curBestScore > bestScore)
+        {
+            PlayerPrefs.SetInt("BestScore", curBestScore);
+        }
     }
 }
