@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public enum PlayerState { Idle, Move, Jump, Dash}
+    public enum PlayerState { Idle, Move, Jump, Dash }
 
     Rigidbody2D rb;
     Animator anim;
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         if (flip)
             transform.localScale = Vector3.one;
         else
-            transform.localScale = new Vector3(-1,1,1);
+            transform.localScale = new Vector3(-1, 1, 1);
 
         if (Input.GetKeyDown(KeyCode.Z) && isAttack == false)
         {
@@ -141,6 +141,11 @@ public class Player : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * 4f, ForceMode2D.Impulse);
         }
+
+        else if (col.gameObject.tag == "DeadZone")
+        {
+            Damage(10);
+        }
     }
 
     private void CheckJump()
@@ -153,31 +158,10 @@ public class Player : MonoBehaviour
     {
         hp -= damage;
 
-        if(hp <= 0)
+        if (hp <= 0)
         {
             Debug.Log("죽어쪙..");
         }
     }
-    
-    // 우진이형 게임용 트리거
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Up")
-        {
-            rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
-        }
 
-        else if (col.gameObject.tag == "SuperUp")
-        {
-            rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 12f, ForceMode2D.Impulse);
-        }
-
-        else if (col.gameObject.tag == "Slow")
-        {
-            rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 4f, ForceMode2D.Impulse);
-        }
-    }
 }
