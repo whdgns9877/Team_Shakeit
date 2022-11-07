@@ -159,25 +159,4 @@ public class Player : MonoBehaviour
         }
     }
     
-    // 우진이형 게임용 트리거
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Up")
-        {
-            rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
-        }
-
-        else if (col.gameObject.tag == "SuperUp")
-        {
-            rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 12f, ForceMode2D.Impulse);
-        }
-
-        else if (col.gameObject.tag == "Slow")
-        {
-            rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 4f, ForceMode2D.Impulse);
-        }
-    }
 }
