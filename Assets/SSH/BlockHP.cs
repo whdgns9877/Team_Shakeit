@@ -9,10 +9,13 @@ public class BlockHP : MonoBehaviour
     SpriteRenderer SR;
 
     [SerializeField] Sprite[] sprites;
+    ClearGame CG;
+
 
     private void Awake()
     {
         SR = GetComponent<SpriteRenderer>();
+        CG = GameObject.Find("MapSpowner").GetComponent<ClearGame>();
     }
 
     // Update is called once per frame
@@ -58,6 +61,7 @@ public class BlockHP : MonoBehaviour
             else if (curHP == 0)
             {
                 GameManager.Inst?.AddScore(300);
+                StartCoroutine(CG.ToTalScore(300));
                 Destroy(gameObject);
             }
         }
@@ -72,6 +76,7 @@ public class BlockHP : MonoBehaviour
             else if (curHP == 0)
             {
                 GameManager.Inst?.AddScore(200);
+                StartCoroutine(CG.ToTalScore(200));
                 Destroy(gameObject);
             }
         }
@@ -81,6 +86,7 @@ public class BlockHP : MonoBehaviour
             if (curHP == 0)
             {
                 GameManager.Inst?.AddScore(100);
+                StartCoroutine(CG.ToTalScore(100));
                 Destroy(gameObject);
             }
         }

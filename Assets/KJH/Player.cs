@@ -166,7 +166,6 @@ public class Player : MonoBehaviour
             Debug.Log("�׾");
             isDead = true;
         }
-
     }
 
     private void CheckJump()
@@ -185,4 +184,6 @@ public class Player : MonoBehaviour
             isDead = true;
         }
     }
+
+
 }
