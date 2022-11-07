@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MoveMap : MonoBehaviour
 {
-    public float mapSpeed = 5f;
+    public float mapSpeed = 0.5f;
 
     [SerializeField]
     GameObject Map;
@@ -31,7 +31,7 @@ public class MoveMap : MonoBehaviour
         {
             map = Instantiate(Map);
             map.transform.position = new Vector3(X,Y,0);
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(3f);
         }        
     }
 }

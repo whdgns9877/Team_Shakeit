@@ -11,10 +11,12 @@ public class BlockSpown : MonoBehaviour
 
     private void Awake()
     {
+
         for (int i = 0; i < block.Length; i++)
         {
             block[i].SetActive(false);
         }
+
     }
 
     public void OnEnable()
@@ -24,8 +26,7 @@ public class BlockSpown : MonoBehaviour
 
     public void SettingBlcok()
     {
-        Num = Random.RandomRange(0, 3);
-        Debug.Log(Num);
+        Num = Random.Range(0, 3);
         block[Num].SetActive(true);
     }
 }
