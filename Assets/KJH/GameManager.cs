@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public int curLevel = 0;
 
+
     private void Awake()
     {
         instance = this;
@@ -53,13 +54,13 @@ public class GameManager : MonoBehaviour
 
     public void EndCurLevel()
     {
+        Debug.Log("EndCulLevel");
         TotalScore += gameScore;
         gameScore = 0;
     }
 
     public void ClearGame()
     {
-        Debug.Log("³¡");
         int curBestScore = TotalScore;
         bestScore = PlayerPrefs.GetInt("BestScore");
 

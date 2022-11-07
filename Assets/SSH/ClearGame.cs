@@ -22,7 +22,7 @@ public class ClearGame : MonoBehaviour
 
         Debug.Log(totalScore);
 
-        if (totalScore >= 2000)
+        if (totalScore >= 100)
         {
             Debug.Log("³¡³¡");
             GameManager.Inst?.EndCurLevel();
